@@ -1,0 +1,20 @@
+import api from "@/lib/axios";
+
+interface AuthData {
+    [key: string]: string | number | boolean;
+}
+
+export const registeredUser = async(data : AuthData) => {
+    const res = await api.post("/auth/register",data);
+    return res.data;
+};
+
+export const loginUser = async(data : AuthData) => {
+    const res = await api.post("/auth/login",data);  
+    return res.data;
+};
+
+export const getProfile = async() => {
+    const res = await api.get("/auth/profile");
+    return res.data;
+}
