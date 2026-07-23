@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
+import Swal from "sweetalert2";
+
 import { getTool, updateTool } from "@/services/tool";
 
 export default function EditToolPage() {
@@ -25,9 +27,13 @@ export default function EditToolPage() {
     featured: false,
   });
 
+
   useEffect(() => {
+
     async function fetchTool() {
+
       try {
+
         const tool = await getTool(id as string);
 
         setForm({
@@ -43,22 +49,36 @@ export default function EditToolPage() {
           apiAvailable: tool.apiAvailable,
           featured: tool.featured,
         });
+
       } catch (error) {
+
         console.error(error);
-        alert("Failed to load tool.");
+
+        await Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to load tool.",
+        });
+
       } finally {
+
         setLoading(false);
+
       }
     }
 
     fetchTool();
+
   }, [id]);
+
+
 
   function handleChange(
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) {
+
     const { name, value, type } = e.target;
 
     setForm((prev) => ({
@@ -68,12 +88,17 @@ export default function EditToolPage() {
           ? (e.target as HTMLInputElement).checked
           : value,
     }));
+
   }
 
+
+
   async function handleSubmit(e: React.FormEvent) {
+
     e.preventDefault();
 
     try {
+
       await updateTool(id as string, {
         ...form,
         rating: form.rating ? Number(form.rating) : null,
@@ -83,23 +108,48 @@ export default function EditToolPage() {
           .filter(Boolean),
       });
 
-      alert("Tool updated successfully.");
+
+      await Swal.fire({
+        icon: "success",
+        title: "Updated Successfully!",
+        text: "AI Tool has been updated.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
 
       router.push("/dashboard");
       router.refresh();
+
+
     } catch (error) {
+
       console.error(error);
-      alert("Failed to update tool.");
+
+
+      await Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: "Failed to update tool.",
+      });
+
     }
+
   }
 
+
+
   if (loading) {
+
     return (
       <div className="p-10 text-center text-xl">
         Loading...
       </div>
     );
+
   }
+
+
 
   return (
     <div className="mx-auto max-w-4xl p-8">
@@ -107,6 +157,7 @@ export default function EditToolPage() {
       <h1 className="mb-8 text-3xl font-bold">
         Edit AI Tool
       </h1>
+
 
       <form onSubmit={handleSubmit} className="space-y-5">
 
@@ -119,6 +170,7 @@ export default function EditToolPage() {
           required
         />
 
+
         <input
           className="w-full rounded-lg border p-3"
           name="company"
@@ -127,6 +179,7 @@ export default function EditToolPage() {
           onChange={handleChange}
           required
         />
+
 
         <textarea
           className="w-full rounded-lg border p-3"
@@ -137,6 +190,7 @@ export default function EditToolPage() {
           onChange={handleChange}
           required
         />
+
 
         <div className="grid grid-cols-2 gap-4">
 
@@ -156,6 +210,7 @@ export default function EditToolPage() {
             <option>Automation</option>
           </select>
 
+
           <select
             name="pricing"
             value={form.pricing}
@@ -169,6 +224,7 @@ export default function EditToolPage() {
 
         </div>
 
+
         <input
           className="w-full rounded-lg border p-3"
           name="website"
@@ -178,6 +234,7 @@ export default function EditToolPage() {
           required
         />
 
+
         <input
           className="w-full rounded-lg border p-3"
           name="logo"
@@ -185,6 +242,7 @@ export default function EditToolPage() {
           value={form.logo}
           onChange={handleChange}
         />
+
 
         <div className="grid grid-cols-2 gap-4">
 
@@ -200,6 +258,7 @@ export default function EditToolPage() {
             onChange={handleChange}
           />
 
+
           <input
             className="rounded-lg border p-3"
             name="tags"
@@ -210,29 +269,39 @@ export default function EditToolPage() {
 
         </div>
 
+
         <div className="flex gap-6">
 
           <label className="flex items-center gap-2">
+
             <input
               type="checkbox"
               name="apiAvailable"
               checked={form.apiAvailable}
               onChange={handleChange}
             />
+
             API Available
+
           </label>
 
+
           <label className="flex items-center gap-2">
+
             <input
               type="checkbox"
               name="featured"
               checked={form.featured}
               onChange={handleChange}
             />
+
             Featured
+
           </label>
 
         </div>
+
+
 
         <button
           className="w-full rounded-lg bg-blue-600 py-3 font-semibold text-white hover:bg-blue-700"
@@ -240,6 +309,7 @@ export default function EditToolPage() {
         >
           Update Tool
         </button>
+
 
       </form>
 

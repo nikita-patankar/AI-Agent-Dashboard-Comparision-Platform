@@ -9,6 +9,8 @@ import ToolSelectionCard from "@/components/compare/ToolSelectionCard";
 import SelectedToolbar from "@/components/compare/SelectedToolbar";
 import ComparisonTable from "@/components/compare/ComparisonTable";
 
+import { swal } from "@/lib/alert";
+
 interface Tool {
   _id: string;
   name: string;
@@ -33,7 +35,7 @@ export default function ComparePage() {
     fetchTools();
   }, []);
 
-  function toggleSelection(tool: Tool) {
+  async function toggleSelection(tool: Tool) {
     const exists = selected.find((t) => t._id === tool._id);
 
     if (exists) {
@@ -42,7 +44,11 @@ export default function ComparePage() {
     }
 
     if (selected.length >= 4) {
-      alert("You can compare maximum 4 tools.");
+      await swal.fire({
+        icon: "warning",
+        title: "Maximum Limit Reached",
+        text: "You can compare a maximum of 4 AI tools at a time.",
+      });
       return;
     }
 
