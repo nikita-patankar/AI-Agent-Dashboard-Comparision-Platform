@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/services/auth";
@@ -27,10 +27,14 @@ export default function LoginForm() {
 
       // Remove this if you're using HttpOnly cookies
       localStorage.setItem("token", res.token);
+      localStorage.setItem("user", JSON.stringify(res.user));
+
+      window.dispatchEvent(new Event("authChanged"));
+
 
       alert("Login Successful");
 
-      router.push("/dashboard");
+      router.push("/");
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Login Failed";
       alert(errorMessage);
@@ -65,6 +69,14 @@ export default function LoginForm() {
       >
         Login
       </button>
+      <div className="text-center text-sm text-gray-600">Don&apos;t have an account?{" "}
+        <Link
+          href="/register"
+          className="font-semibold text-indigo-600 hover:underline"
+        >
+          Register
+        </Link>
+      </div>
     </form>
   );
 }

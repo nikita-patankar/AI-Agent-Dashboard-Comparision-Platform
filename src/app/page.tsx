@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      <Stats/>
+      <Stats />
       <FeaturedTool />
     </>
   );

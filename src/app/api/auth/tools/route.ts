@@ -125,6 +125,8 @@ export async function POST(request: NextRequest) {
 }
 
 import mongoose from "mongoose";
+import "@/models/User";
+
 
 export async function GET() {
   try {
