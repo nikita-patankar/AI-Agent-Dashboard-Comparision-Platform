@@ -71,13 +71,13 @@ export default function ToolDetails({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-4xl p-8">
-      <div className="rounded-xl border bg-white p-8 shadow">
+      <div className="rounded-xl border bg-white p-8 shadow blue">
 
-        <h1 className="mb-2 text-4xl font-bold">
+        <h1 className="mb-2 text-4xl font-bold text-center text-slate-500 underline">
           {tool.name}
         </h1>
 
-        <p className="mb-6 text-gray-500">
+        <p className="mb-6 text-gray-500 text-center">
           {tool.company}
         </p>
 

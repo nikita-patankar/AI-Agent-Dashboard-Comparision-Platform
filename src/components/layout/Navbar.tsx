@@ -50,7 +50,6 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-bold text-indigo-600"
         >
-          AIKart
         </Link>
 
         <div className="flex items-center gap-4">

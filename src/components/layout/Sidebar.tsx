@@ -10,6 +10,7 @@ import {
   Bot,
   FolderOpen,
   LogOut,
+  UserCircle
 } from "lucide-react";
 
 const menuItems = [
@@ -38,6 +39,11 @@ const menuItems = [
     href: "/compare",
     icon: Bot,
   },
+  {
+    title: "Profile",
+    href: "/dashboard/profile",
+    icon: UserCircle,
+  }
 ];
 
 export default function Sidebar() {
@@ -73,15 +79,15 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r bg-white shadow-md">
+    <aside className="fixed left-0 top-0 flex h-screen w-64 flex-col border-r bg-white shadow-md">
 
       <div className="border-b p-6">
-        <h1 className="text-2xl font-bold text-blue-600">
-          AI Dashboard
+        <h1 className="text-2xl font-bold text-blue-600 text-center">
+         Model Hub
         </h1>
 
-        <p className="text-sm text-gray-500">
-          AI Agent Comparison
+        <p className="text-sm text-gray-500 text-center">
+          AI Agent Comparison Platform
         </p>
       </div>
 
@@ -97,11 +103,10 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 rounded-lg px-4 py-3 transition ${
-                active
+              className={`flex items-center gap-3 rounded-lg px-4 py-3 transition ${active
                   ? "bg-blue-600 text-white"
                   : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-              }`}
+                }`}
             >
               <Icon size={20} />
               {item.title}

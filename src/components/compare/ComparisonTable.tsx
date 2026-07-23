@@ -8,6 +8,7 @@ interface Tool {
   pricing: string;
   rating: number;
   apiAvailable: boolean;
+  website: string;
 }
 
 interface Props {
@@ -112,11 +113,10 @@ export default function ComparisonTable({ tools }: Props) {
             {tools.map((tool) => (
               <td
                 key={tool._id}
-                className={`border p-3 font-bold ${
-                  tool.rating === highestRating
+                className={`border p-3 font-bold ${tool.rating === highestRating
                     ? "text-green-600"
                     : ""
-                }`}
+                  }`}
               >
                 ⭐ {tool.rating}
               </td>
@@ -139,6 +139,34 @@ export default function ComparisonTable({ tools }: Props) {
               </td>
             ))}
 
+          </tr>
+
+          <tr>
+            <td className="border p-3 font-semibold">
+              Website
+            </td>
+
+            {tools.map((tool) => (
+              <td
+                key={tool._id}
+                className="border p-3 text-center"
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-sm text-gray-500">
+                    {new URL(tool.website).hostname.replace("www.", "")}
+                  </span>
+
+                  <a
+                    href={tool.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+                  >
+                    Visit ↗
+                  </a>
+                </div>
+              </td>
+            ))}
           </tr>
 
         </tbody>

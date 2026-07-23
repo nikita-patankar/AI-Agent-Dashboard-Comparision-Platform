@@ -112,7 +112,7 @@ export default function ToolForm({ tool }: ToolFormProps) {
         <div className="grid gap-5 md:grid-cols-2">
 
           <div>
-            <label className="mb-2 block font-medium">
+            <label className="mb-2 block font-medium ">
               Tool Name
             </label>
 

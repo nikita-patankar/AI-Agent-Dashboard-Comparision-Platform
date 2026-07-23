@@ -10,6 +10,7 @@ interface Tool {
   company: string;
   category: string;
   pricing: string;
+  website: string;
   featured?: boolean;
   apiAvailable?: boolean;
 }
@@ -92,6 +93,7 @@ export default function MyToolsTable() {
               <th className="p-4 text-left">Company</th>
               <th className="p-4 text-left">Category</th>
               <th className="p-4 text-left">Pricing</th>
+              <th className="p-4 text-center">Website</th>
               <th className="p-4 text-center">Actions</th>
             </tr>
 
@@ -104,7 +106,7 @@ export default function MyToolsTable() {
               <tr>
 
                 <td
-                  colSpan={5}
+                  colSpan={6}
                   className="p-8 text-center text-gray-500"
                 >
                   You haven't added any tools yet.
@@ -137,10 +139,20 @@ export default function MyToolsTable() {
                     {tool.pricing}
                   </td>
 
+                  <td className="p-4 text-center">
+                    <a
+                      href={tool.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+                    >
+                      🌐 Visit
+                    </a>
+                  </td>
+
                   <td className="p-4">
 
                     <div className="flex justify-center gap-3">
-
                       <Link
                         href={`/dashboard/edit/${tool._id}`}
                         className="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600"

@@ -10,6 +10,7 @@ interface Tool {
   company: string;
   category: string;
   pricing: string;
+  website: string;
   featured?: boolean;
   apiAvailable?: boolean;
 }
@@ -189,6 +190,10 @@ export default function ToolTable() {
                 API
               </th>
 
+              <th className="p-4 text-center">
+                Website
+              </th>
+
             </tr>
 
           </thead>
@@ -200,7 +205,7 @@ export default function ToolTable() {
               <tr>
 
                 <td
-                  colSpan={6}
+                  colSpan={7}
                   className="p-8 text-center text-gray-500"
                 >
                   No tools found.
@@ -242,6 +247,20 @@ export default function ToolTable() {
 
                   <td className="p-4 text-center">
                     {tool.apiAvailable ? "✅" : "❌"}
+                  </td>
+
+                  <td
+                    className="p-4 text-center"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <a
+                      href={tool.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-lg px-3 py-2 text-sm font-medium text-sky-400 transition hover:text-rose-700"
+                    >
+                      🌐 Visit
+                    </a>
                   </td>
 
                 </tr>
