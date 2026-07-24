@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🤖 AI Agent Comparison Dashboard
 
-## Getting Started
+Overview
 
-First, run the development server:
+The AI Agent Comparison Dashboard is a full-stack web application that helps users discover and compare AI agents in one place. It provides an intuitive interface to explore AI tools, view detailed information, and compare multiple AI agents side by side to make informed decisions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project was developed as part of the AIKart Full Stack Developer Internship – Final Assessment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+User Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- User Registration & Login
+- Secure JWT Authentication
+- Browse AI Agents
+- Search AI Agents
+- Filter AI Agents by Category
+- View Detailed AI Agent Information
+- Compare Multiple AI Agents Side-by-Side
 
-## Learn More
+Admin Features
 
-To learn more about Next.js, take a look at the following resources:
+- Add AI Agents
+- Edit AI Agent Details
+- Delete AI Agents
+- Manage AI Agent Data with Full CRUD Operations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🛠 Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontend
 
-## Deploy on Vercel
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Axios
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Backend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js
+- Express.js
+- TypeScript
+- MongoDB
+- Mongoose
+- JWT Authentication
+
+
