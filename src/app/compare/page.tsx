@@ -36,7 +36,7 @@ export default function ComparePage() {
     fetchTools();
   }, []);
 
-  async function toggleSelection(tool: Tool) {
+  function toggleSelection(tool: Tool) {
     const exists = selected.find((t) => t._id === tool._id);
 
     if (exists) {
@@ -45,7 +45,7 @@ export default function ComparePage() {
     }
 
     if (selected.length >= 4) {
-      await swal.fire({
+      swal.fire({
         icon: "warning",
         title: "Maximum Limit Reached",
         text: "You can compare a maximum of 4 AI tools at a time.",
