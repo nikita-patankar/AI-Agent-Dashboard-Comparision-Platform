@@ -1,15 +1,6 @@
 "use client";
 
-interface Tool {
-  _id: string;
-  name: string;
-  company: string;
-  category: string;
-  pricing: string;
-  rating: number;
-  apiAvailable: boolean;
-  website: string;
-}
+import type { Tool } from "@/types/tool";
 
 interface Props {
   tools: Tool[];

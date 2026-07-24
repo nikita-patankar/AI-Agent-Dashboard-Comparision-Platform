@@ -2,10 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 
-interface Tool {
-  _id: string;
-  name: string;
-}
+import type { Tool } from "@/types/tool";
 
 interface Props {
   selected: Tool[];

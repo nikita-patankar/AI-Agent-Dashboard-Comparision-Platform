@@ -3,15 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-interface Tool {
-  _id: string;
-  name: string;
-  company: string;
-  category: string;
-  pricing: string;
-  rating: number;
-  apiAvailable: boolean;
-}
+import type { Tool } from "@/types/tool";
 
 interface Props {
   tool: Tool;

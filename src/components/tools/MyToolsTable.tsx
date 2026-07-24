@@ -8,16 +8,7 @@ import Swal from "sweetalert2";
 import { deleteTool, getMyTools } from "@/services/tool";
 
 
-interface Tool {
-  _id: string;
-  name: string;
-  company: string;
-  category: string;
-  pricing: string;
-  website: string;
-  featured?: boolean;
-  apiAvailable?: boolean;
-}
+import type { Tool } from "@/types/tool";
 
 
 export default function MyToolsTable() {

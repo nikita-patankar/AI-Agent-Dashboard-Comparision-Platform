@@ -11,16 +11,7 @@ import ComparisonTable from "@/components/compare/ComparisonTable";
 
 import { swal } from "@/lib/alert";
 
-interface Tool {
-  _id: string;
-  name: string;
-  company: string;
-  category: string;
-  pricing: string;
-  rating: number;
-  apiAvailable: boolean;
-  website: string;
-}
+import type { Tool } from "@/types/tool";
 
 export default function ComparePage() {
   const [tools, setTools] = useState<Tool[]>([]);

@@ -5,27 +5,7 @@ import { getTool } from "@/services/tool";
 
 import Swal from "sweetalert2";
 
-interface Tool {
-  _id: string;
-  name: string;
-  company: string;
-  description: string;
-  category: string;
-  pricing: string;
-  website: string;
-  apiAvailable: boolean;
-  featured: boolean;
-  rating: number | null;
-  views: number;
-  bookmarkCount: number;
-  comparisonCount: number;
-  tags: string[];
-  createdAt: string;
-  createdBy?: {
-    name: string;
-    email: string;
-  };
-}
+import type { Tool } from "@/types/tool";
 
 interface Props {
   params: Promise<{
