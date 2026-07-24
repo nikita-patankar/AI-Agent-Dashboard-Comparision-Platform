@@ -19,6 +19,7 @@ interface Tool {
   pricing: string;
   rating: number;
   apiAvailable: boolean;
+  website: string;
 }
 
 export default function ComparePage() {
