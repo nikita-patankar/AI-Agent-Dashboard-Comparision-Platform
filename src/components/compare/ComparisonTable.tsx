@@ -10,7 +10,9 @@ export default function ComparisonTable({ tools }: Props) {
 
   if (tools.length < 2) return null;
 
-  const highestRating = Math.max(...tools.map((t) => t.rating));
+ const highestRating = Math.max(
+  ...tools.map((t) => t.rating ?? 0)
+);
 
   return (
     <div className="mb-10 overflow-x-auto rounded-xl border shadow">
@@ -109,7 +111,7 @@ export default function ComparisonTable({ tools }: Props) {
                     : ""
                   }`}
               >
-                ⭐ {tool.rating}
+                ⭐ {tool.rating ?? "N/A"}
               </td>
             ))}
 
